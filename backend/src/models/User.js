@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
+// Strict institutional email regex (supports .edu, .edu.in, .edu.au, etc.)
+const INSTITUTIONAL_EMAIL_REGEX =
+  /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.edu(\.[a-zA-Z]{2,})?$/i;
+
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -15,15 +19,17 @@ const userSchema = new mongoose.Schema(
       unique: true,
       lowercase: true,
       trim: true,
-      match: [
-        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
-        'Please provide a valid email address',
-      ],
+      validate: {
+        validator: function (v) {
+          return INSTITUTIONAL_EMAIL_REGEX.test(v);
+        },
+        message: 'Please enter a valid institutional (.edu) email address.',
+      },
     },
     password: {
       type: String,
       required: [true, 'Please provide a password'],
-      minlength: [6, 'Password must be at least 6 characters long'],
+      minlength: [8, 'Password must be at least 8 characters long'],
       select: false, // Don't return password by default in queries
     },
     role: {

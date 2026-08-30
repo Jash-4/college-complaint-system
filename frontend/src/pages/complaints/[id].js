@@ -143,7 +143,7 @@ export default function ComplaintDetailPage() {
           <div className="flex items-center justify-between">
             <Link
               href="/dashboard"
-              className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50 transition-colors shadow-sm"
+              className="flex items-center gap-1.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-3 py-1.5 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors shadow-sm"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               <span>Back to Dashboard</span>
@@ -152,7 +152,7 @@ export default function ComplaintDetailPage() {
             {isAdmin && (
               <Link
                 href="/admin"
-                className="flex items-center gap-1.5 rounded-xl border border-purple-200 bg-purple-50 px-3 py-1.5 text-xs font-semibold text-purple-700 hover:bg-purple-100 transition-colors"
+                className="flex items-center gap-1.5 rounded-xl border border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-950/50 px-3 py-1.5 text-xs font-semibold text-purple-700 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-900/50 transition-colors"
               >
                 <ShieldCheck className="h-3.5 w-3.5" />
                 <span>Admin Management Console</span>
@@ -162,8 +162,8 @@ export default function ComplaintDetailPage() {
 
           {/* Feedback Messages */}
           {error && (
-            <div className="flex items-start gap-2.5 rounded-xl border border-rose-200 bg-rose-50 p-4 text-xs text-rose-800 animate-fade-in">
-              <AlertCircle className="h-4 w-4 shrink-0 text-rose-600 mt-0.5" />
+            <div className="flex items-start gap-2.5 rounded-xl border border-rose-200 dark:border-rose-900/60 bg-rose-50 dark:bg-rose-950/40 p-4 text-xs text-rose-800 dark:text-rose-300 animate-fade-in">
+              <AlertCircle className="h-4 w-4 shrink-0 text-rose-600 dark:text-rose-400 mt-0.5" />
               <div>
                 <p className="font-semibold">Notice</p>
                 <p>{error}</p>
@@ -172,8 +172,8 @@ export default function ComplaintDetailPage() {
           )}
 
           {successMessage && (
-            <div className="flex items-start gap-2.5 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-xs text-emerald-800 animate-fade-in">
-              <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600 mt-0.5" />
+            <div className="flex items-start gap-2.5 rounded-xl border border-emerald-200 dark:border-emerald-900/60 bg-emerald-50 dark:bg-emerald-950/40 p-4 text-xs text-emerald-800 dark:text-emerald-300 animate-fade-in">
+              <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400 mt-0.5" />
               <div>
                 <p className="font-semibold">Success</p>
                 <p>{successMessage}</p>
@@ -182,15 +182,15 @@ export default function ComplaintDetailPage() {
           )}
 
           {loading ? (
-            <div className="flex flex-col items-center justify-center py-24 text-slate-400 gap-3">
-              <Loader2 className="h-8 w-8 animate-spin text-indigo-600" />
+            <div className="flex flex-col items-center justify-center py-24 text-slate-400 dark:text-slate-500 gap-3">
+              <Loader2 className="h-8 w-8 animate-spin text-indigo-600 dark:text-indigo-400" />
               <p className="text-xs font-medium">Loading ticket details...</p>
             </div>
           ) : !complaint ? (
-            <div className="rounded-3xl border border-slate-200 bg-white p-12 text-center shadow-sm">
-              <AlertCircle className="h-10 w-10 text-slate-400 mx-auto mb-3" />
-              <h2 className="text-lg font-bold text-slate-900">Complaint Not Found</h2>
-              <p className="text-xs text-slate-500 mt-1">
+            <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-12 text-center shadow-sm">
+              <AlertCircle className="h-10 w-10 text-slate-400 dark:text-slate-500 mx-auto mb-3" />
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white">Complaint Not Found</h2>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                 The requested ticket could not be located or you may not have authorization.
               </p>
               <Link
@@ -203,29 +203,29 @@ export default function ComplaintDetailPage() {
           ) : (
             <div className="space-y-6">
               {/* Header Card */}
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b border-slate-100 pb-6">
+              <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8 shadow-sm transition-colors duration-200">
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-6">
                   <div className="space-y-2">
                     <div className="flex flex-wrap items-center gap-2">
                       <StatusBadge status={complaint.status} size="md" />
                       <StatusBadge priority={complaint.priority} size="md" />
-                      <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+                      <span className="rounded-full bg-slate-100 dark:bg-slate-800 px-3 py-1 text-xs font-semibold text-slate-700 dark:text-slate-300">
                         {complaint.category}
                       </span>
                     </div>
 
-                    <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 leading-snug">
+                    <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white leading-snug">
                       {complaint.title}
                     </h1>
 
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 pt-1">
-                      <span className="flex items-center gap-1 font-medium text-slate-700">
-                        <MapPin className="h-3.5 w-3.5 text-slate-400" />
+                    <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400 pt-1">
+                      <span className="flex items-center gap-1 font-medium text-slate-700 dark:text-slate-300">
+                        <MapPin className="h-3.5 w-3.5 text-slate-400 dark:text-slate-500" />
                         {complaint.location}
                       </span>
                       <span>•</span>
                       <span className="flex items-center gap-1">
-                        <Calendar className="h-3.5 w-3.5 text-slate-400" />
+                        <Calendar className="h-3.5 w-3.5 text-slate-400 dark:text-slate-500" />
                         Submitted{' '}
                         {new Date(complaint.createdAt).toLocaleDateString(undefined, {
                           month: 'short',
@@ -239,7 +239,7 @@ export default function ComplaintDetailPage() {
                         <>
                           <span>•</span>
                           <span className="flex items-center gap-1">
-                            <Clock className="h-3.5 w-3.5 text-slate-400" />
+                            <Clock className="h-3.5 w-3.5 text-slate-400 dark:text-slate-500" />
                             Updated{' '}
                             {new Date(complaint.updatedAt).toLocaleDateString(undefined, {
                               month: 'short',
@@ -259,7 +259,7 @@ export default function ComplaintDetailPage() {
                     <button
                       onClick={handleDelete}
                       disabled={deleting}
-                      className="flex items-center gap-1.5 rounded-xl border border-rose-200 bg-rose-50 px-4 py-2.5 text-xs font-semibold text-rose-700 hover:bg-rose-100 disabled:opacity-50 transition-colors shrink-0"
+                      className="flex items-center gap-1.5 rounded-xl border border-rose-200 dark:border-rose-900/60 bg-rose-50 dark:bg-rose-950/40 px-4 py-2.5 text-xs font-semibold text-rose-700 dark:text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-900/60 disabled:opacity-50 transition-colors shrink-0"
                     >
                       {deleting ? (
                         <Loader2 className="h-4 w-4 animate-spin" />
@@ -272,14 +272,14 @@ export default function ComplaintDetailPage() {
                 </div>
 
                 {/* Visual Status Progress Timeline */}
-                <div className="py-6 border-b border-slate-100">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-6">
+                <div className="py-6 border-b border-slate-100 dark:border-slate-800">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-6">
                     Resolution Milestone Timeline
                   </h3>
 
                   <div className="relative">
                     {/* Background line */}
-                    <div className="absolute top-4 left-4 right-4 h-1 bg-slate-100 -z-0 hidden md:block" />
+                    <div className="absolute top-4 left-4 right-4 h-1 bg-slate-100 dark:bg-slate-800 -z-0 hidden md:block" />
 
                     <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
                       {statusTimelineSteps.map((step, idx) => {
@@ -295,10 +295,10 @@ export default function ComplaintDetailPage() {
                             <div
                               className={`flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold transition-all shadow-sm ${
                                 isCurrent
-                                  ? 'bg-indigo-600 text-white ring-4 ring-indigo-100 scale-110'
+                                  ? 'bg-indigo-600 text-white ring-4 ring-indigo-100 dark:ring-indigo-950 scale-110'
                                   : isCompleted
                                   ? 'bg-emerald-500 text-white'
-                                  : 'bg-slate-100 text-slate-400'
+                                  : 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500'
                               }`}
                             >
                               {isCompleted && !isCurrent ? (
@@ -311,10 +311,10 @@ export default function ComplaintDetailPage() {
                               <p
                                 className={`text-xs font-semibold ${
                                   isCurrent
-                                    ? 'text-indigo-600 font-bold'
+                                    ? 'text-indigo-600 dark:text-indigo-400 font-bold'
                                     : isCompleted
-                                    ? 'text-slate-800'
-                                    : 'text-slate-400'
+                                    ? 'text-slate-800 dark:text-slate-200'
+                                    : 'text-slate-400 dark:text-slate-500'
                                 }`}
                               >
                                 {step.label}
@@ -328,39 +328,39 @@ export default function ComplaintDetailPage() {
                 </div>
 
                 {/* Submitter & Assignment Info Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-6 border-b border-slate-100">
-                  <div className="rounded-2xl border border-slate-200 bg-slate-50/50 p-4">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-6 border-b border-slate-100 dark:border-slate-800">
+                  <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/50 p-4">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
                       Submitted By Student
                     </p>
                     <div className="flex items-center gap-3">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-100 text-indigo-700">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300">
                         <User className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="text-sm font-bold text-slate-900">
+                        <p className="text-sm font-bold text-slate-900 dark:text-white">
                           {complaint.student?.name || 'Student'}
                         </p>
-                        <p className="text-xs text-slate-500">
+                        <p className="text-xs text-slate-500 dark:text-slate-400">
                           {complaint.student?.email} • {complaint.student?.department || 'Department N/A'}
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="rounded-2xl border border-slate-200 bg-slate-50/50 p-4">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+                  <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/50 p-4">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
                       Assigned Personnel / Team
                     </p>
                     <div className="flex items-center gap-3">
-                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-purple-100 text-purple-700">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300">
                         <Wrench className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="text-sm font-bold text-slate-900">
+                        <p className="text-sm font-bold text-slate-900 dark:text-white">
                           {complaint.assignedTo || 'Unassigned'}
                         </p>
-                        <p className="text-xs text-slate-500">
+                        <p className="text-xs text-slate-500 dark:text-slate-400">
                           {complaint.assignedTo !== 'Unassigned'
                             ? 'Specialized maintenance handler assigned'
                             : 'Awaiting administrator dispatch'}
@@ -372,11 +372,11 @@ export default function ComplaintDetailPage() {
 
                 {/* Description Body */}
                 <div className="pt-6 space-y-3">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                     Incident Description
                   </h3>
-                  <div className="rounded-2xl bg-slate-50 p-5 border border-slate-200/80">
-                    <p className="text-sm text-slate-800 leading-relaxed whitespace-pre-wrap">
+                  <div className="rounded-2xl bg-slate-50 dark:bg-slate-950/60 p-5 border border-slate-200/80 dark:border-slate-800">
+                    <p className="text-sm text-slate-800 dark:text-slate-200 leading-relaxed whitespace-pre-wrap">
                       {complaint.description}
                     </p>
                   </div>
@@ -385,12 +385,12 @@ export default function ComplaintDetailPage() {
                 {/* Resolution Details (if provided) */}
                 {complaint.resolutionDetails && (
                   <div className="pt-6 space-y-3">
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-600 flex items-center gap-1.5">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
                       <CheckCircle2 className="h-4 w-4" />
                       Resolution & Action Notes
                     </h3>
-                    <div className="rounded-2xl bg-emerald-50/60 p-5 border border-emerald-200">
-                      <p className="text-sm text-emerald-900 leading-relaxed whitespace-pre-wrap">
+                    <div className="rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/40 p-5 border border-emerald-200 dark:border-emerald-900/60">
+                      <p className="text-sm text-emerald-900 dark:text-emerald-200 leading-relaxed whitespace-pre-wrap">
                         {complaint.resolutionDetails}
                       </p>
                     </div>
@@ -400,16 +400,16 @@ export default function ComplaintDetailPage() {
 
               {/* Admin Management Panel */}
               {isAdmin && (
-                <div className="rounded-3xl border border-purple-200 bg-white p-6 sm:p-8 shadow-sm">
+                <div className="rounded-3xl border border-purple-200 dark:border-purple-800 bg-white dark:bg-slate-900 p-6 sm:p-8 shadow-sm transition-colors duration-200">
                   <div className="flex items-center gap-2 mb-6">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-purple-100 text-purple-700">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300">
                       <ShieldCheck className="h-4 w-4" />
                     </div>
                     <div>
-                      <h2 className="text-lg font-bold text-slate-900">
+                      <h2 className="text-lg font-bold text-slate-900 dark:text-white">
                         Admin Action & Resolution Console
                       </h2>
-                      <p className="text-xs text-slate-500">
+                      <p className="text-xs text-slate-500 dark:text-slate-400">
                         Update status milestones, dispatch maintenance staff, and publish resolution notes.
                       </p>
                     </div>
@@ -419,7 +419,7 @@ export default function ComplaintDetailPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       {/* Status */}
                       <div>
-                        <label className="block text-xs font-bold text-slate-800 mb-1.5">
+                        <label className="block text-xs font-bold text-slate-800 dark:text-slate-200 mb-1.5">
                           Status Transition
                         </label>
                         <select
@@ -427,7 +427,7 @@ export default function ComplaintDetailPage() {
                           onChange={(e) =>
                             setAdminForm({ ...adminForm, status: e.target.value })
                           }
-                          className="w-full rounded-xl border border-slate-300 py-2.5 px-3 text-sm text-slate-900 bg-white focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-600/20"
+                          className="w-full rounded-xl border border-slate-300 dark:border-slate-700 py-2.5 px-3 text-sm text-slate-900 dark:text-white bg-white dark:bg-slate-950 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-600/20"
                         >
                           <option value="Submitted">Submitted</option>
                           <option value="Under Review">Under Review</option>
@@ -440,7 +440,7 @@ export default function ComplaintDetailPage() {
 
                       {/* Priority */}
                       <div>
-                        <label className="block text-xs font-bold text-slate-800 mb-1.5">
+                        <label className="block text-xs font-bold text-slate-800 dark:text-slate-200 mb-1.5">
                           Priority Rating
                         </label>
                         <select
@@ -448,7 +448,7 @@ export default function ComplaintDetailPage() {
                           onChange={(e) =>
                             setAdminForm({ ...adminForm, priority: e.target.value })
                           }
-                          className="w-full rounded-xl border border-slate-300 py-2.5 px-3 text-sm text-slate-900 bg-white focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-600/20"
+                          className="w-full rounded-xl border border-slate-300 dark:border-slate-700 py-2.5 px-3 text-sm text-slate-900 dark:text-white bg-white dark:bg-slate-950 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-600/20"
                         >
                           <option value="Low">Low Priority</option>
                           <option value="Medium">Medium Priority</option>
@@ -459,7 +459,7 @@ export default function ComplaintDetailPage() {
 
                       {/* Assigned Staff */}
                       <div>
-                        <label className="block text-xs font-bold text-slate-800 mb-1.5">
+                        <label className="block text-xs font-bold text-slate-800 dark:text-slate-200 mb-1.5">
                           Assign Personnel / Team
                         </label>
                         <input
@@ -469,14 +469,14 @@ export default function ComplaintDetailPage() {
                             setAdminForm({ ...adminForm, assignedTo: e.target.value })
                           }
                           placeholder="e.g. IT Team - Alex"
-                          className="w-full rounded-xl border border-slate-300 py-2.5 px-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-600/20"
+                          className="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 py-2.5 px-3 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-600/20"
                         />
                       </div>
                     </div>
 
                     {/* Resolution Details */}
                     <div>
-                      <label className="block text-xs font-bold text-slate-800 mb-1.5">
+                      <label className="block text-xs font-bold text-slate-800 dark:text-slate-200 mb-1.5">
                         Resolution Notes / Action Taken
                       </label>
                       <textarea
@@ -489,7 +489,7 @@ export default function ComplaintDetailPage() {
                           })
                         }
                         placeholder="Provide details about actions taken, parts replaced, or completion notes..."
-                        className="w-full rounded-xl border border-slate-300 p-3.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-600/20"
+                        className="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 p-3.5 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-600/20"
                       />
                     </div>
 
@@ -497,7 +497,7 @@ export default function ComplaintDetailPage() {
                       <button
                         type="submit"
                         disabled={savingStatus}
-                        className="flex items-center gap-2 rounded-xl bg-purple-600 px-6 py-2.5 text-xs font-semibold text-white shadow-md shadow-purple-200 hover:bg-purple-700 disabled:opacity-50 transition-colors"
+                        className="flex items-center gap-2 rounded-xl bg-purple-600 px-6 py-2.5 text-xs font-semibold text-white shadow-md shadow-purple-200 dark:shadow-none hover:bg-purple-700 disabled:opacity-50 transition-colors"
                       >
                         {savingStatus ? (
                           <>
