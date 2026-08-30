@@ -1,178 +1,125 @@
 # Smart College Complaint Management System
 
-A modern, production-grade digital grievance redressal and facilities maintenance platform designed to streamline issue reporting, lifecycle tracking, staff dispatch, and resolution audits across college campuses.
-
----
-
 ## 1. Project Name
 **Smart College Complaint Management System** (CampusResolve)
 
 ---
 
 ## 2. Problem Statement
-Traditional paper-based or uncoordinated college grievance reporting processes suffer from significant delays, lack of accountability, lost tickets, and poor communication between students, department heads, and campus maintenance engineers. 
-
-The **Smart College Complaint Management System** provides an end-to-end digital ecosystem where students can file, track, and monitor incident tickets in real-time, while administrators can triage issues, dispatch specialized personnel, and monitor campus-wide facilities health through data-driven analytics.
+Manual campus grievance processes often lead to lost tickets, lack of accountability, and zero visibility into resolution progress. The Smart College Complaint Management System solves this by providing a centralized digital portal for students to lodge, categorize, and track campus issues while enabling college administrators to review, assign, prioritize, and resolve grievances systematically.
 
 ---
 
 ## 3. Features
-
-- **Role-Based Access Control (RBAC)**: Secure authentication and custom interfaces for **Students** and **Administrators**.
-- **Comprehensive Incident Submission**: Fast complaint logging with category tagging (`Classroom`, `Hostel`, `Wi-Fi`, `Infrastructure`, `Cleanliness`, `Labs`, `Other`), location details, and visual priority levels (`Low`, `Medium`, `High`, `Critical`).
-- **Interactive Lifecycle Milestone Timeline**: Real-time visual tracking through 6 standardized stages:
-  $$\text{Submitted} \longrightarrow \text{Under Review} \longrightarrow \text{Assigned} \longrightarrow \text{In Progress} \longrightarrow \text{Resolved} \longrightarrow \text{Closed}$$
-- **Student Ownership Controls**: Students can view their personal complaint histories, monitor progress updates, and cancel/delete tickets while still in `Submitted` status.
-- **Administrative Triage & Staff Dispatch**: Administrators can update ticket statuses, assign dedicated maintenance personnel/teams, adjust priority ratings, and append official resolution notes.
-- **Master Admin Console & Quick Modal**: In-table quick triage and update modals for managing campus grievances without page reloads.
-- **Multi-Criteria Search & Filter Toolbar**: Real-time filtering by status, category, priority, and free-text search across locations, student names, and titles.
-- **Aggregated Analytics & KPIs**: Instant calculation of total logged complaints, active/pending review counts, in-progress tasks, and completed resolutions.
+- **Role-Based Authentication**: Secure JWT-based login/registration for Students and Administrators.
+- **Student Portal**:
+  - Lodge complaints with category (Hostel, Classroom, Wi-Fi, Infrastructure, Cleanliness, Labs, Other), priority, and location.
+  - Track complaint status through an interactive visual lifecycle (Submitted → Under Review → Assigned → In Progress → Resolved → Closed).
+  - View detailed complaint history and resolution remarks.
+  - Cancel/delete tickets while still in `Submitted` status.
+- **Admin Management Console**:
+  - Filter and search complaints by status, category, and urgency.
+  - Assign complaints to specific staff/departments.
+  - Real-time status transitions with administrative resolution notes.
+  - Aggregated campus grievance analytics and metric counters.
+- **Responsive UI/UX**: Built with Tailwind CSS and Lucide icons for mobile and desktop screens.
 
 ---
 
 ## 4. Technology Stack
-
-- **Frontend**: Next.js 14 (Pages Router), React 18, Tailwind CSS 3, Axios, Lucide React
-- **Backend API**: Node.js, Express.js, JSON Web Tokens (JWT), Bcrypt.js, CORS, Dotenv
+- **Frontend**: Next.js (Pages Router), React, Tailwind CSS, Axios, Lucide React
+- **Backend**: Node.js, Express.js, JSON Web Tokens (JWT), bcryptjs, CORS
 - **Database**: MongoDB Atlas (Mongoose ODM)
-- **Deployment & Hosting**: Vercel (Frontend Client), Render (Backend REST API)
+- **Deployment**: Vercel (Frontend), Render (Backend API), MongoDB Atlas (Database)
 
 ---
 
 ## 5. Screenshots
-
-### 🖥️ 1. Landing Page & Live Statistics
-![Landing Page](https://raw.githubusercontent.com/placeholder/college-complaint-system/main/docs/screenshots/landing-page.png)
-*Figure 1: Landing page featuring campus category channels, workflow steps, and real-time grievance counters.*
-
-### 📊 2. Role-Adaptive Dashboard (Student & Admin)
-![Dashboard](https://raw.githubusercontent.com/placeholder/college-complaint-system/main/docs/screenshots/dashboard.png)
-*Figure 2: Unified dashboard displaying personal ticket metrics, recent complaints, and quick action controls.*
-
-### 📝 3. Grievance Submission with Live Card Preview
-![New Complaint Form](https://raw.githubusercontent.com/placeholder/college-complaint-system/main/docs/screenshots/new-complaint.png)
-*Figure 3: Interactive ticket creation form with category selectors, priority cards, and real-time live preview.*
-
-### ⏱️ 4. Visual Milestone Timeline & Details View
-![Complaint Detail Timeline](https://raw.githubusercontent.com/placeholder/college-complaint-system/main/docs/screenshots/complaint-timeline.png)
-*Figure 4: 6-stage milestone tracker, student information panel, and administrator update console.*
-
-### 🛠️ 5. Admin Management Console & Quick Triage
-![Admin Console](https://raw.githubusercontent.com/placeholder/college-complaint-system/main/docs/screenshots/admin-console.png)
-*Figure 5: Advanced administration ledger with search, category distribution metrics, and modal staff assignment.*
+- **Landing Page**: `docs/screenshots/landing.png`
+- **Student Dashboard**: `docs/screenshots/dashboard.png`
+- **Lodge Complaint View**: `docs/screenshots/new-complaint.png`
+- **Complaint Lifecycle & Timeline**: `docs/screenshots/timeline.png`
+- **Admin Control Panel**: `docs/screenshots/admin.png`
 
 ---
 
 ## 6. Live Demo
-- **Frontend Web Application (Vercel)**: [https://college-complaint-system.vercel.app](https://college-complaint-system.vercel.app)
+- **Frontend Application**: [https://college-complaint-system-bice.vercel.app/](https://college-complaint-system-bice.vercel.app/)
 
 ---
 
 ## 7. Backend URL
-- **REST API Service (Render)**: [https://college-complaint-api.onrender.com](https://college-complaint-api.onrender.com)
-- **API Health Check**: `https://college-complaint-api.onrender.com/api/health`
+- **REST API Endpoint**: [https://college-complaint-system-s116.onrender.com](https://college-complaint-system-s116.onrender.com)
+- **API Health Check**: [https://college-complaint-system-s116.onrender.com/api/health](https://college-complaint-system-s116.onrender.com/api/health)
 
 ---
 
 ## 8. Setup Instructions
 
 ### Prerequisites
-- Node.js (v18.0.0 or higher)
-- npm (v9.0.0 or higher)
-- MongoDB Database (Local instance or MongoDB Atlas cluster URI)
+- Node.js (v18 or higher)
+- MongoDB Atlas account or local MongoDB instance
 
----
-
-### Step 1: Clone and Navigate to Repository
-```bash
-git clone https://github.com/your-username/college-complaint-system.git
-cd college-complaint-system
-```
-
----
-
-### Step 2: Backend Configuration & Startup
-
-1. Open a terminal and enter the `backend/` directory:
+### Backend Setup
+1. Navigate to the backend directory:
    ```bash
    cd backend
    ```
-
-2. Install backend dependencies:
+2. Install dependencies:
    ```bash
    npm install
    ```
-
-3. Create the `.env` file (or copy from `.env.example`):
-   ```bash
-   cp .env.example .env
-   ```
-
-4. Populate `.env` with your credentials:
+3. Configure environment variables in `.env`:
    ```env
    PORT=5000
    NODE_ENV=development
-   MONGODB_URI=your_mongodb_connection_string
+   MONGODB_URI=your_mongodb_connection_uri
    JWT_SECRET=your_jwt_secret_key
    FRONTEND_URL=http://localhost:3000
    ```
-
-5. Start the backend development server:
+4. Start the backend development server:
    ```bash
    npm run dev
    ```
-   *The backend REST API will be active on `http://localhost:5000`.*
+   *The server runs on `http://localhost:5000`.*
 
----
-
-### Step 3: Frontend Configuration & Startup
-
-1. Open a second terminal and enter the `frontend/` directory:
+### Frontend Setup
+1. Navigate to the frontend directory:
    ```bash
    cd frontend
    ```
-
-2. Install frontend dependencies:
+2. Install dependencies:
    ```bash
    npm install
    ```
-
-3. Create the `.env.local` file (or copy from `.env.example`):
-   ```bash
-   cp .env.example .env.local
-   ```
-
-4. Verify the API target:
+3. Configure environment variables in `.env.local`:
    ```env
    NEXT_PUBLIC_API_URL=http://localhost:5000
    ```
-
-5. Start the Next.js frontend client:
+4. Start the frontend development server:
    ```bash
    npm run dev
    ```
-   *Open [http://localhost:3000](http://localhost:3000) in your web browser.*
+   *The application will be accessible at `http://localhost:3000`.*
 
 ---
 
 ## 9. Environment Variables
 
-### Backend (`backend/.env`)
-
-| Variable | Description | Example / Default |
+### Backend Environment Variables (`backend/.env`)
+| Variable | Description | Example / Required |
 | :--- | :--- | :--- |
-| `PORT` | Port number on which Express listens | `5000` |
-| `NODE_ENV` | Runtime environment mode | `development` / `production` |
-| `MONGODB_URI` | MongoDB Atlas or Local connection URI | `mongodb+srv://<user>:<password>@cluster0.mongodb.net/complaint_db` |
-| `JWT_SECRET` | Secret key for signing JSON Web Tokens | `your_secure_random_string` |
-| `JWT_EXPIRE` | Token validity duration | `7d` |
-| `FRONTEND_URL` | Allowed origin for CORS validation | `http://localhost:3000` or `*` |
+| `PORT` | Server listener port | `5000` |
+| `NODE_ENV` | Environment mode | `development` / `production` |
+| `MONGODB_URI` | MongoDB Atlas / Local Connection URI | `mongodb+srv://<user>:<password>@cluster.mongodb.net/<dbname>` |
+| `JWT_SECRET` | Secret key for signing JSON Web Tokens | `your_secret_key` |
+| `JWT_EXPIRE` | JWT expiration duration | `7d` |
+| `FRONTEND_URL` | Allowed CORS origin | `http://localhost:3000` or `*` |
 
-### Frontend (`frontend/.env.local`)
-
-| Variable | Description | Example / Default |
+### Frontend Environment Variables (`frontend/.env.local`)
+| Variable | Description | Example / Required |
 | :--- | :--- | :--- |
-| `NEXT_PUBLIC_API_URL` | Base URL of the backend REST API server | `http://localhost:5000` |
+| `NEXT_PUBLIC_API_URL` | Backend REST API Base URL | `http://localhost:5000` |
 
 ---
 
