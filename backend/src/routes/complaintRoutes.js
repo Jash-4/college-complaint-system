@@ -10,7 +10,10 @@ const {
 } = require('../controllers/complaintController');
 const { protect, authorize } = require('../middleware/authMiddleware');
 
-// All complaint routes require authentication
+// Public route for landing page live counter stats
+router.get('/public-stats', getComplaintStats);
+
+// All routes below require authentication
 router.use(protect);
 
 // Admin analytics/stats route - MUST be declared before /:id route

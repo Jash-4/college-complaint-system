@@ -29,12 +29,12 @@ export default function HomePage() {
   useEffect(() => {
     const fetchPublicStats = async () => {
       try {
-        const res = await complaintAPI.getStats();
+        const res = await complaintAPI.getPublicStats();
         if (res?.stats) {
           setStats(res.stats);
         }
       } catch (err) {
-        // Fallback default numbers if unauthenticated
+        // Fallback default numbers if offline
         setStats({
           total: 128,
           pending: 14,

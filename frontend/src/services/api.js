@@ -88,6 +88,10 @@ export const complaintAPI = {
     const response = await api.get('/complaints/stats');
     return response.data;
   },
+  getPublicStats: async () => {
+    const response = await api.get('/complaints/public-stats');
+    return response.data;
+  },
 };
 
 export default api;
